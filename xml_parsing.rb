@@ -23,25 +23,3 @@ class DevicesXML
   end
 
 end
-
-
-# x = DevicesXML.new
-# puts x.get_all_devices[0]
-
-# x = DevicesXML.new
-# posts = x.get_all_devices
-# deviceArray = []
-#
-# posts.each do |post|
-#   deviceHash = {
-#     "name" => post.xpath('//name'),
-#     "value" => post.xpath('//value'),
-#     "notes" => post.xpath('//notes')
-#   }
-#
-#   deviceArray.push(deviceHash)
-#
-#
-# end
-#
-# puts deviceArray[0]['name']

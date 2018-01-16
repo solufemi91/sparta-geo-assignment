@@ -18,9 +18,9 @@ class ApiController < Sinatra::Base
 
       posts.each do |post|
         deviceHash = {
-          "name" => post.xpath('//name'),
-          "value" => post.xpath('//value'),
-          "notes" => post.xpath('//notes')
+          "name" => post.xpath('child::name').text,
+          "value" => post.xpath('child::value').text,
+          "notes" => post.xpath('child::notes').text
         }
 
         deviceArray.push(deviceHash)
