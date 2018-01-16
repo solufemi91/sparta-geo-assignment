@@ -8,10 +8,27 @@ class ApiController < Sinatra::Base
       register Sinatra::Reloader
     end
 
+    # display all devices
     get '/' do
-      'This is a test '
+
       x = DevicesXML.new
-      x.get_all_device_names
+      content_type :json
+      posts = x.get_all_devices
+      deviceArray = []
+
+      posts.each do |post|
+        deviceHash = {
+          "name" => post.xpath('//name'),
+          "value" => post.xpath('//value'),
+          "notes" => post.xpath('//notes')
+        }
+
+        deviceArray.push(deviceHash)
+
+
+      end
+
+      deviceArray.to_json
     end
 
 end
