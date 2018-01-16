@@ -9,7 +9,9 @@ class ApiController < Sinatra::Base
     end
 
     get '/' do
-      puts 'This is a test '
+      'This is a test '
+      x = DevicesXML.new
+      x.get_all_device_names
     end
 
 end
