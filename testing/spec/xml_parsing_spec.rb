@@ -60,6 +60,8 @@ describe DevicesXML do
       expect(@devices['invalid']['notes']).to eq "Don't assign this to a device!"
     end
 
+    
+
 
   end
 end

@@ -6,22 +6,6 @@ class DevicesXML
     @minischema = Nokogiri::XML(File.open('mini-schema.xml'))
   end
 
-  def get_all_device_names
-    names_array = []
-    @minischema.xpath('//name').each do |name|
-      names_array.push(name.text)
-    end
-    names_array
-  end
-
-  def get_all_device_names
-    names_array = []
-    @minischema.xpath('//value').each do |name|
-      names_array.push(name.text)
-    end
-    names_array
-  end
-
   def get_all_devices
     devices_array = []
     @minischema.xpath('//device').each do |device|
@@ -64,4 +48,5 @@ end
 #
 # # puts x.get_all_devices_as_a_hash
 # # puts x.get_hash_for_specific_device('smartplug_old_1')
-# puts x.get_array_of_keys
+# # puts x.get_array_of_keys
+# puts x.get_notes_for_specific_device('hub_ethernet_cosy')
