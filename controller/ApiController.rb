@@ -8,20 +8,24 @@ class ApiController < Sinatra::Base
       register Sinatra::Reloader
     end
 
+    # Gets all the devices
+
     get '/' do
 
       x = DevicesXML.new
       content_type :json
-      posts = x.get_all_devices
-      hashDevices = Hash.new
-      posts.each do |post|
-        hashDevices[post.xpath('child::name').text] = {
-          "value" => post.xpath('child::value').text,
-          "notes" => post.xpath('child::notes').text
-        }
-      end
-
+      hashDevices = x.get_all_devices_as_a_hash
       hashDevices.to_json
     end
+
+    # get an individual device
+    get '/device' do
+      x = DevicesXML.new
+      content_type :json
+      hashDevices = x.get_all_devices_as_a_hash
+      hashDevices['hub_ethernet_cosy']['notes'].to_json
+
+    end
+
 
 end

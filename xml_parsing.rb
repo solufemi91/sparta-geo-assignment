@@ -22,4 +22,21 @@ class DevicesXML
     devices_array
   end
 
+
+  def get_all_devices_as_a_hash
+
+    posts = get_all_devices
+    hashDevices = Hash.new
+    posts.each do |post|
+      hashDevices[post.xpath('child::name').text] = {
+        "value" => post.xpath('child::value').text,
+        "notes" => post.xpath('child::notes').text
+      }
+    end
+    hashDevices
+  end
+
 end
+
+x = DevicesXML.new
+puts x.get_all_devices_as_a_hash
