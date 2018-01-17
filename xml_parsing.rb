@@ -36,7 +36,9 @@ class DevicesXML
     hashDevices
   end
 
-end
+  def get_notes_for_specific_device(devicename)
+    hashDevices = get_all_devices_as_a_hash
+    hashDevices[devicename]['notes']
+  end
 
-x = DevicesXML.new
-puts x.get_all_devices_as_a_hash
+end
