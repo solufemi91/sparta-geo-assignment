@@ -3,7 +3,7 @@ require 'nokogiri'
 class DevicesXML
 
   def initialize
-    @minischema = Nokogiri::XML(File.open('./mini-schema.xml'))
+    @minischema = Nokogiri::XML(File.open('../mini-schema.xml'))
   end
 
   def get_all_device_names
@@ -41,9 +41,19 @@ class DevicesXML
     hashDevices[devicename]['notes']
   end
 
+  def get_hash_for_specific_device(devicename)
+    hashDevices = get_all_devices_as_a_hash
+    hashDevices[devicename]
+  end
+
+  def get_array_of_keys
+    array = get_all_devices_as_a_hash.keys
+  end
+
 end
 
-# x = DevicesXML.new
-#
+x = DevicesXML.new
+
 # puts x.get_all_devices_as_a_hash
-# puts x.get_notes_for_specific_device('smartplug_old_1')
+# puts x.get_hash_for_specific_device('smartplug_old_1')
+puts x.get_array_of_keys
