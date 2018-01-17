@@ -42,3 +42,8 @@ class DevicesXML
   end
 
 end
+
+# x = DevicesXML.new
+#
+# puts x.get_all_devices_as_a_hash
+# puts x.get_notes_for_specific_device('smartplug_old_1')

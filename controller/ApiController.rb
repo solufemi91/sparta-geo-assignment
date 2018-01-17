@@ -10,9 +10,6 @@ class ApiController < Sinatra::Base
 
     # Gets all the devices
 
-    devicename = 0
-    hashDevices = Hash.new
-
     get '/' do
 
       x = DevicesXML.new
@@ -23,43 +20,13 @@ class ApiController < Sinatra::Base
     end
 
     # get notes for an individual device
-    get '/device' do
+    get '/device/:name' do
+      devicename = params[:name]
       x = DevicesXML.new
       content_type :json
       hashDevices = x.get_notes_for_specific_device(devicename)
       hashDevices.to_json
 
     end
-
-
-    # returns the formpage to enter the phone id
-    get '/formpage' do
-      erb :'api/index'
-    end
-
-    # create a new device
-    get '/formpage/new' do
-      erb :'api/new'
-    end
-
-    #processed the information entered by the user
-    post '/formpage' do
-      devicename = params[:devicename]
-      redirect '/device'
-    end
-
-    # attempt to create a new device 
-    post '/formpage/new' do
-      newDeviceName = params[:devicename]
-      newDeviceValue = params[:devicevalue]
-      newDeviceNotes = params[:devicenotes]
-      hashDevices[newDeviceName] = {
-        "value" => newDeviceValue,
-        "notes" => newDeviceNotes
-      }
-      # puts hashDevices
-      redirect '/'
-    end
-
 
 end
