@@ -16,7 +16,7 @@ describe 'ApiController' do
     end
 
 
-    it "/device/:id displays the correct" do
+    it "/device/:id displays the correct notes details" do
       get '/device/smartplug_old_2'
       expect(last_response.body).to include("Legacy Legato smartplug 2")
     end

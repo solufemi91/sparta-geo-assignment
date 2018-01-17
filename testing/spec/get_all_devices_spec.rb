@@ -52,6 +52,14 @@ describe DevicesXML do
       expect(@deviceXML.get_array_of_keys.length).to be 31
     end
 
+    it "I expect the hub_ethernet_cosy notes value to be Cosy hub, Ethernet microcontroller" do
+      expect(@devices['hub_ethernet_cosy']['notes']).to eq 'Cosy hub, Ethernet microcontroller'
+    end
+
+    it "I expect the invalid notes value to be Don't assign this to a device!" do
+      expect(@devices['invalid']['notes']).to eq "Don't assign this to a device!"
+    end
+
 
   end
 end
