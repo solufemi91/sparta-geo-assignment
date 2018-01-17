@@ -1,3 +1,6 @@
+require 'sinatra'
+require "sinatra/reloader" if development?
+
 class ApiController < Sinatra::Base
 
   set :root, File.join(File.dirname(__FILE__), '..')

@@ -5,3 +5,5 @@ gem "sinatra"
 gem "rack"
 gem 'json'
 gem 'rspec'
+gem 'sinatra-base'
+gem 'rack-test'
