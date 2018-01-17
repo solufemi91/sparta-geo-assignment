@@ -53,15 +53,12 @@ describe DevicesXML do
     end
 
     it "I expect the hub_ethernet_cosy notes value to be Cosy hub, Ethernet microcontroller" do
-      expect(@devices['hub_ethernet_cosy']['notes']).to eq 'Cosy hub, Ethernet microcontroller'
+      expect(@deviceXML.get_notes_for_specific_device('hub_ethernet_cosy')).to eq 'Cosy hub, Ethernet microcontroller'
     end
 
     it "I expect the invalid notes value to be Don't assign this to a device!" do
-      expect(@devices['invalid']['notes']).to eq "Don't assign this to a device!"
+      expect(@deviceXML.get_notes_for_specific_device('invalid')).to eq "Don't assign this to a device!"
     end
-
-    
-
 
   end
 end
